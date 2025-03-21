@@ -1,0 +1,79 @@
+/* Estilo para el body */
+body {
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+}
+
+/* Fila de los botones */
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilo para los botones de colores */
+.color-btn {
+    height: 300px;
+    width: 300px;
+    border: 5px solid white;
+}
+
+/* Colores específicos para los botones */
+#green {
+    background-color: green;
+    border-radius: 300px 0 0 0;
+}
+
+#red {
+    background-color: rgb(182, 36, 10);
+    border-radius: 0 300px 0 0;
+}
+
+#blue {
+    background-color: rgb(47, 146, 212);
+    border-radius: 0 0 300px 0;
+}
+
+#yellow {
+    background-color: rgb(243, 170, 35);
+    border-radius: 0 0 0 300px;
+}
+
+
+.play-btn {
+    background-color: rgb(27, 27, 27);
+    border-radius: 100%;
+    box-shadow: 0 0 50px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    bottom: 38%;
+    left: 45%;
+}
+
+.play-btn p {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 35px;
+    font-weight: 650;
+    margin: 0;
+}
+
+/* Asegurar que las filas de botones sean bien espaciadas */
+.row {
+    margin-bottom: 20px;
+}
+
