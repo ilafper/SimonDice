@@ -1,79 +1,117 @@
-/* Estilo para el body */
-body {
-    background-color: rgb(27, 27, 27);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+@font-face { 
+    font-family: 'Persona5';
+    src: url('../font/Persona5MenuFontPrototype-Regular.ttf');
 }
 
-/* Contenedor principal */
-.container {
+body {
+    font-family: 'Persona5', sans-serif;
+    text-align: center;
+    background-image: url('../src/fondo7.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin-top: 20px;
+}
+
+header h1 {
+    font-size: 100px;
+    color: white;
     text-align: center;
 }
 
-/* Fila de los botones */
-.row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.figuras {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 por fila */
+    width: auto;
+    gap: 20px; 
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
 }
-
-/* Estilo para los botones de colores */
-.color-btn {
-    height: 300px;
-    width: 300px;
-    border: 5px solid white;
-}
-
-/* Colores específicos para los botones */
-#green {
-    background-color: green;
-    border-radius: 300px 0 0 0;
-}
-
-#red {
-    background-color: rgb(182, 36, 10);
-    border-radius: 0 300px 0 0;
-}
-
-#blue {
-    background-color: rgb(47, 146, 212);
-    border-radius: 0 0 300px 0;
-}
-
-#yellow {
-    background-color: rgb(243, 170, 35);
-    border-radius: 0 0 0 300px;
-}
-
-
-.play-btn {
-    background-color: rgb(27, 27, 27);
-    border-radius: 100%;
-    box-shadow: 0 0 50px;
-    height: 200px;
-    width: 200px;
+.contenedor {
+    width: 250px; /* Ajuste de ancho de los botones */
+    height: 250px;
+    background-color: black;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    z-index: 10;
-    bottom: 38%;
-    left: 45%;
+    box-shadow: 7px 7px 0px rgb(255, 255, 255);
 }
 
-.play-btn p {
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 35px;
-    font-weight: 650;
-    margin: 0;
+.contenedor img {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Asegurar que las filas de botones sean bien espaciadas */
-.row {
-    margin-bottom: 20px;
+
+.empezar {
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
+
+.game-over-img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+
+/* Ajustes para tablet */
+@media (max-width: 1024px) {
+    .figuras {
+        grid-template-columns: repeat(2, 1fr); /* 2 por fila en tablet */
+        gap: 20px;
+    }
+
+    .contenedor {
+        width: 100%; /* Los botones ocupan el 100% del ancho */
+        padding: 20px;
+    }
+
+    .contenedor img {
+        width: 120px; /* Reducir el tamaño de las imágenes */
+    }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+    .figuras {
+        grid-template-columns: repeat(2, 1fr); /* 2 por fila en móviles */
+        gap: 20px;
+    }
+
+    .contenedor {
+        width: 100%; /* Los botones ocupan el 100% del ancho */
+        padding: 20px;
+    }
+
+    .contenedor img {
+        width: 100px; /* Reducir el tamaño de las imágenes */
+    }
+
+    header h1 {
+        font-size: 50px;
+    }
+}
