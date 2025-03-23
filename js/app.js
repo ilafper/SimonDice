@@ -5,8 +5,8 @@ $(document).ready(function() {
     let estaJugando = false;
 
     // Selecciona los botones y el botón de inicio
-    const $botones = $('.contenedor');
-    const $botonInicio = $('.empezar');
+    const figura = $('.contenedor');
+    const empezar = $('.empezar');
 
     // Función para añadir un nuevo elemento aleatorio a la secuencia
     function agregarASecuencia() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
                 clearInterval(intervalo);
                 return;
             }
-            const boton = $botones[secuencia[i]];
+            const boton = figura[secuencia[i]];
             $(boton).css('transform', 'scale(1.07)'); // Escalar el botón
             setTimeout(() => {
                 $(boton).css('transform', 'scale(1)'); // Volver a la escala normal
@@ -37,7 +37,7 @@ $(document).ready(function() {
         secuenciaUsuario = [];
         nivel = 1;
         estaJugando = false;
-        $botonInicio.text('Comenzar');
+        empezar.text('Comenzar');
         $('.game-over-img').remove(); // Elimina la imagen de "Game Over"
     }
 
@@ -46,10 +46,10 @@ $(document).ready(function() {
         if (!estaJugando) return;
 
         secuenciaUsuario.push(indice);
-        const $boton = $botones[indice];
-        $($boton).css('transform', 'scale(1.05)'); // Escalar el botón al hacer clic
+        const seleccion = figura[indice];
+        $(seleccion).css('transform', 'scale(1.05)'); // Escalar el botón al hacer clic
         setTimeout(() => {
-            $($boton).css('transform', 'scale(1)'); // Volver a la escala normal
+            $(seleccion).css('transform', 'scale(1)'); // Volver a la escala normal
         }, 300);
 
         // Verificar si el jugador ha cometido un error
@@ -72,13 +72,13 @@ $(document).ready(function() {
     // Función para mostrar "Game Over"
     function gameOver() {
         estaJugando = false;
-        $botones.off("click", manejarClic); // Desactiva la entrada del jugador
+        figura.off("click", manejarClic); // Desactiva la entrada del jugador
     
         // Muestra la imagen de "Game Over"
         $('body').append('<img src="../src/fonfoFin.png" alt="Game Over" class="game-over-img">'); // Muestra la imagen
     
         // Cambia el texto del botón a "Reiniciar"
-        $botonInicio.text("Start");
+        empezar.text("Start");
     
         // Usar setTimeout para asegurarnos de que la imagen se haya mostrado antes de agregar el evento
         setTimeout(function() {
@@ -94,12 +94,12 @@ $(document).ready(function() {
     
 
     // Asignar eventos a los botones
-    $botones.each(function(indice) {
+    figura.each(function(indice) {
         $(this).on('click', () => manejarClic(indice));
     });
 
     // Asignar evento al botón de inicio
-    $botonInicio.on('click', function() {
+    empezar.on('click', function() {
         if (!estaJugando) {
             estaJugando = true;
             $(this).text('Jugando...');
