@@ -40,7 +40,7 @@ header h1 {
 
 }
 .contenedor {
-    width: 250px; /* Ajuste de ancho de los botones */
+    width: 250px; 
     height: 250px;
     background-color: black;
     border: none;
@@ -72,10 +72,11 @@ header h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 50%;
     z-index: 1000;
     cursor: pointer;
 }
+
 
 
 /* Ajustes para tablet */
@@ -86,29 +87,37 @@ header h1 {
     }
 
     .contenedor {
-        width: 100%; /* Los botones ocupan el 100% del ancho */
+        width: 200px; /* Los botones ocupan el 100% del ancho */
         padding: 20px;
+        height: 200px;
     }
 
     .contenedor img {
-        width: 120px; /* Reducir el tamaño de las imágenes */
+        width: 150px; /* Reducir el tamaño de las imágenes */
+    }
+    .empezar{
+        font-size: 50px;
     }
 }
 
 /* Ajustes para móvil */
 @media (max-width: 768px) {
+    header h1{
+        font-size: 00px;
+    }
     .figuras {
-        grid-template-columns: repeat(2, 1fr); /* 2 por fila en móviles */
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
     .contenedor {
-        width: 100%; /* Los botones ocupan el 100% del ancho */
+        width: 200px;
+        height: 200px;
         padding: 20px;
     }
 
     .contenedor img {
-        width: 100px; /* Reducir el tamaño de las imágenes */
+        width: 60px; 
     }
 
     header h1 {

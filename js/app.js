@@ -7,8 +7,6 @@ $(document).ready(function() {
     // Selecciona los botones y el botón de inicio
     const $botones = $('.contenedor');
     const $botonInicio = $('.empezar');
-    const $gameOverContainer = $('#game-over-container'); // Contenedor de "Game Over"
-    const $nivelFinal = $('#nivel-final'); // Elemento para mostrar el nivel final
 
     // Función para añadir un nuevo elemento aleatorio a la secuencia
     function agregarASecuencia() {
@@ -40,7 +38,7 @@ $(document).ready(function() {
         nivel = 1;
         estaJugando = false;
         $botonInicio.text('Comenzar');
-        $gameOverContainer.hide(); // Oculta el contenedor de "Game Over"
+        $('.game-over-img').remove(); // Elimina la imagen de "Game Over"
     }
 
     // Función para manejar el clic del jugador
@@ -75,22 +73,25 @@ $(document).ready(function() {
     function gameOver() {
         estaJugando = false;
         $botones.off("click", manejarClic); // Desactiva la entrada del jugador
-
-        // Muestra el contenedor de "Game Over"
-        $nivelFinal.text(nivel); // Actualiza el nivel alcanzado
-        $gameOverContainer.show(); // Muestra el contenedor
-
+    
+        // Muestra la imagen de "Game Over"
+        $('body').append('<img src="../src/fonfoFin.png" alt="Game Over" class="game-over-img">'); // Muestra la imagen
+    
         // Cambia el texto del botón a "Reiniciar"
-        $botonInicio.text("Reiniciar");
-
-        // Evento para cerrar el contenedor al hacer clic fuera de él
-        $(document).on('click', function(event) {
-            if (!$(event.target).closest('#game-over-container').length) {
-                $gameOverContainer.hide(); // Oculta el contenedor de "Game Over"
-                $(document).off('click'); // Elimina el evento de clic después de cerrar el contenedor
-            }
-        });
+        $botonInicio.text("Start");
+    
+        // Usar setTimeout para asegurarnos de que la imagen se haya mostrado antes de agregar el evento
+        setTimeout(function() {
+            // Evento para cerrar la imagen al hacer clic fuera de ella
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.game-over-img').length) {
+                    $('.game-over-img').remove(); // Elimina la imagen de "Game Over"
+                    $(document).off('click'); // Elimina el evento de clic después de cerrar la imagen
+                }
+            });
+        }, 200); // Agregar un pequeño retraso de 200ms para que la imagen se vea primero
     }
+    
 
     // Asignar eventos a los botones
     $botones.each(function(indice) {
